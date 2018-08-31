@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -68,6 +69,13 @@ public class Controller {
             timeSlider.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    mediaPlayer.seek(Duration.seconds(timeSlider.getValue()));
+                }
+            });
+
+            timeSlider.setOnMouseDragEntered(new EventHandler<MouseDragEvent>() {
+                @Override
+                public void handle(MouseDragEvent event) {
                     mediaPlayer.seek(Duration.seconds(timeSlider.getValue()));
                 }
             });
